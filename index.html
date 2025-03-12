@@ -124,7 +124,7 @@
     margin: 5px 0 0;
     font-style: italic;
 }
-        #orderNotification {
+      #orderNotification {
     position: fixed;
     top: 20px;
     right: -300px; /* Initially hidden */
@@ -135,14 +135,20 @@
     font-size: 16px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     opacity: 0; /* Initially invisible */
-    animation: slideIn 4s ease-in-out forwards;
+    transition: right 0.5s ease-in-out, opacity 1s ease-in-out;
 }
 
-@keyframes slideIn {
-    0% { right: -300px; opacity: 0; }
-    20% { right: 20px; opacity: 1; } /* Slide in */
-    80% { right: 20px; opacity: 1; } /* Stay visible */
-    100% { right: -300px; opacity: 0; } /* Slide out */
+/* Show the notification when the form is submitted */
+#orderNotification:target {
+    right: 20px;
+    opacity: 1;
+    animation: fadeOut 60s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    90% { opacity: 1; } /* Keep visible */
+    100% { opacity: 0; right: -300px; } /* Hide after 1 minute */
 }
 
 
@@ -173,7 +179,7 @@
             <input type="text" id="customer-pincode" placeholder="Pincode" required><br>
             <input type="text" id="customer-city" placeholder="City" required><br>
             <input type="text" id="customer-state" placeholder="State" required><br>
-            <button type="button" onclick="submitOrder()">Place Your Order</button>
+            <button type="button" onclick="submitOrder()" onclick="#orderNotification">Place Your Order</button>
             <button type="button" onclick="closeForm()">Cancel</button>
         </form>
     </div>
