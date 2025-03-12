@@ -113,20 +113,53 @@
             margin-left: 10px;
         }
         header img {
-    height: 30px; /* Adjust the size here */
-    width: 30px; /* Ensure it's a perfect circle */
-    border-radius: 50%; /* Makes the image circular */
-    margin-right: 10px;
+            height: 30px; /* Adjust the size here */
+            width: 30px; /* Ensure it's a perfect circle */
+            border-radius: 50%; /* Makes the image circular */
+            margin-right: 10px;
+        }
+        .slogan {
+    font-size: 14px;
+    color: #f8f9fa;
+    margin: 5px 0 0;
+    font-style: italic;
 }
+        #orderNotification {
+    position: fixed;
+    top: 20px;
+    right: -300px; /* Initially hidden */
+    background: #28a745;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* Initially invisible */
+    animation: slideIn 4s ease-in-out forwards;
+}
+
+@keyframes slideIn {
+    0% { right: -300px; opacity: 0; }
+    20% { right: 20px; opacity: 1; } /* Slide in */
+    80% { right: 20px; opacity: 1; } /* Stay visible */
+    100% { right: -300px; opacity: 0; } /* Slide out */
+}
+
+
 
     </style>
 </head>
 <body>
-    <header>
-        <img src="https://media-hosting.imagekit.io//4bb0ca6024484654/Anantdham.webp?Expires=1836374408&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=fslAyzSI-uriE0Z3a7TXgI3mvLMujymoWj9a4D6wuHtQpaQ9PSf-GlBPER0yC7qx~Pdr5X9t1syN-1qSA3lLhk9fZhz9UgmL001v3s0FAIYnM-ARB3-Dy2DR0LSbNU7wMFyD2m-Z5z5YXxBpahlBt26S0qdZiQBj5nVSr4ZrjlOFMxxjlirylv3twup~zY-n7qJwb2l9ojjbZgIsaaspztjs~Ntw704RipLvzzN-Nqy12Hel5sR2nLrjDuNuNJX5h23vOrtC-eGg28Q2Qd8TKRuRxFROAqgWtrz0DDrPYYGUcSXA8TpKlfOBi1O1QSQn~2Z~F8FygYHz3F9ZAToPVw__"></img>
-        Anantdham Store
-    </header>
-    
+   <header>
+    <img src="https://media-hosting.imagekit.io//4bb0ca6024484654/Anantdham.webp?Expires=1836374408&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=fslAyzSI-uriE0Z3a7TXgI3mvLMujymoWj9a4D6wuHtQpaQ9PSf-GlBPER0yC7qx~Pdr5X9t1syN-1qSA3lLhk9fZhz9UgmL001v3s0FAIYnM-ARB3-Dy2DR0LSbNU7wMFyD2m-Z5z5YXxBpahlBt26S0qdZiQBj5nVSr4ZrjlOFMxxjlirylv3twup~zY-n7qJwb2l9ojjbZgIsaaspztjs~Ntw704RipLvzzN-Nqy12Hel5sR2nLrjDuNuNJX5h23vOrtC-eGg28Q2Qd8TKRuRxFROAqgWtrz0DDrPYYGUcSXA8TpKlfOBi1O1QSQn~2Z~F8FygYHz3F9ZAToPVw__" alt="Anantdham Logo"> 
+    <div>
+        <div>Anantdham Store <span class="verified-badge">✔ Verified</span></div>
+        <p class="slogan">Your Trusted Shopping Destination</p>
+    </div>
+</header>
+
+    <div id="orderNotification">✅ Order Placed Successfully!</div>
+
     <div class="drop-area" id="drop-area">Drag & Drop Product Image Here</div>
     <input type="file" id="file-input" accept="image/*">
     <button onclick="openForm()">Buy Now</button>
