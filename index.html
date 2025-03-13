@@ -167,6 +167,27 @@
     <div id="orderNotification">✅ Order Placed Successfully!</div>
 
     <div class="drop-area" id="drop-area">Drag & Drop Product Image Here</div>
+    <label for="file-input" id="custom-file-btn" style="
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;">
+    📷 Choose Product Image
+</label>
+<input type="file" id="file-input" accept="image/*" style="display: none;">
+<span id="file-name" style="margin-left: 10px; font-size: 14px;"></span>
+
+<script>
+    document.getElementById("file-input").addEventListener("change", function() {
+        let fileName = this.files[0] ? this.files[0].name : "No file chosen";
+        document.getElementById("file-name").textContent = fileName;
+    });
+</script>
+
     <input type="file" id="file-input" accept="image/*">
     <button onclick="openForm()">Buy Now</button>
     
