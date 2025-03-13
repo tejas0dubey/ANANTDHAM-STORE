@@ -112,126 +112,14 @@
             font-size: 14px;
             margin-left: 10px;
         }
-        header img {
-            height: 30px; /* Adjust the size here */
-            width: 30px; /* Ensure it's a perfect circle */
-            border-radius: 50%; /* Makes the image circular */
-            margin-right: 10px;
-        }
-        .slogan {
-    font-size: 14px;
-    color: #f8f9fa;
-    margin: 5px 0 0;
-    font-style: italic;
-}
-      #orderNotification {
-    position: fixed;
-    top: 20px;
-    right: -300px; /* Initially hidden */
-    background: #28a745;
-    color: white;
-    padding: 15px 25px;
-    border-radius: 5px;
-    font-size: 16px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-    opacity: 0; /* Initially invisible */
-    transition: right 0.5s ease-in-out, opacity 1s ease-in-out;
-}
-
-/* Show the notification when the form is submitted */
-#orderNotification:target {
-    right: 20px;
-    opacity: 1;
-    animation: fadeOut 60s ease-in-out forwards;
-}
-
-@keyframes fadeOut {
-    0% { opacity: 1; }
-    90% { opacity: 1; } /* Keep visible */
-    100% { opacity: 0; right: -300px; } /* Hide after 1 minute */
-}
- .file-upload-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 50vh; /* Adjust height as needed */
-    }
-
-    .custom-file-btn {
-        display: inline-block;
-        background: linear-gradient(135deg, #007bff, #0056b3);
-        color: white;
-        padding: 12px 18px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-size: 16px;
-        font-weight: bold;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        transition: all 0.3s ease-in-out;
-        text-align: center;
-        width: 100%;
-        max-width: 250px;
-        text-align: center;
-    }
-
-    .custom-file-btn:hover {
-        background: linear-gradient(135deg, #0056b3, #00408a);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    .custom-file-btn:active {
-        transform: scale(0.95);
-    }
-
-    #file-name {
-        display: block;
-        font-size: 14px;
-        margin-top: 10px;
-        color: #333;
-        text-align: center;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 600px) {
-        .custom-file-btn {
-            font-size: 14px;
-            padding: 10px 15px;
-            max-width: 200px;
-        }
-    }
-
-
     </style>
 </head>
 <body>
-   <header>
-    <img src="https://media-hosting.imagekit.io//4bb0ca6024484654/Anantdham.webp?Expires=1836374408&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=fslAyzSI-uriE0Z3a7TXgI3mvLMujymoWj9a4D6wuHtQpaQ9PSf-GlBPER0yC7qx~Pdr5X9t1syN-1qSA3lLhk9fZhz9UgmL001v3s0FAIYnM-ARB3-Dy2DR0LSbNU7wMFyD2m-Z5z5YXxBpahlBt26S0qdZiQBj5nVSr4ZrjlOFMxxjlirylv3twup~zY-n7qJwb2l9ojjbZgIsaaspztjs~Ntw704RipLvzzN-Nqy12Hel5sR2nLrjDuNuNJX5h23vOrtC-eGg28Q2Qd8TKRuRxFROAqgWtrz0DDrPYYGUcSXA8TpKlfOBi1O1QSQn~2Z~F8FygYHz3F9ZAToPVw__" alt="Anantdham Logo"> 
-    <div>
-        <div>Anantdham Store <span class="verified-badge">✔ Verified</span></div>
-        <p class="slogan">Your Trusted Shopping Destination</p>
-    </div>
-</header>
-
-    <div id="orderNotification">✅ Order Placed Successfully!</div>
-
-   
-   
-<div class="file-upload-container">
-    <label for="file-input" class="custom-file-btn">📷 Choose Product Image</label>
-    <input type="file" id="file-input" accept="image/*" style="display: none;">
-    <span id="file-name">No file chosen</span>
-</div>
-
-
-
-<script>
-    document.getElementById("file-input").addEventListener("change", function() {
-        let fileName = this.files[0] ? this.files[0].name : "No file chosen";
-        document.getElementById("file-name").textContent = fileName;
-    });
-</script>
-
+    <header>
+        Anantdham Store
+    </header>
+    
+    <div class="drop-area" id="drop-area">Drag & Drop Product Image Here</div>
     <input type="file" id="file-input" accept="image/*">
     <button onclick="openForm()">Buy Now</button>
     
@@ -244,7 +132,7 @@
             <input type="text" id="customer-pincode" placeholder="Pincode" required><br>
             <input type="text" id="customer-city" placeholder="City" required><br>
             <input type="text" id="customer-state" placeholder="State" required><br>
-            <button type="button" onclick="submitOrder()" onclick="#orderNotification">Place Your Order</button>
+            <button type="button" onclick="submitOrder()">Place Your Order</button>
             <button type="button" onclick="closeForm()">Cancel</button>
         </form>
     </div>
@@ -257,21 +145,6 @@
         <textarea id="complaint-text" placeholder="Describe your complaint..." required></textarea><br>
         <button id="submitComplaint">Submit</button>
     </div>
-    <div id="warning" style="
-    position: fixed;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: red;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 14px;
-    font-weight: bold;
-    z-index: 1000;">
-    ⚠️ Illegal items cannot be delivered.
-</div>
-
     
     <button id="supportBtn" onclick="openSupportChat()">📞</button>
     <footer> <p>&copy;2025 Anantdham Store. <span class="verified-badge">✔ Trusted & Secure</span> All rights reserved.</p></footer> 
@@ -312,12 +185,12 @@
             let city = document.getElementById("customer-city").value;
             let state = document.getElementById("customer-state").value;
             
-            let message = Order Details:%0AName: ${name}%0APhone: ${phone}%0AEmail: ${email}%0APincode: ${pincode}%0ACity: ${city}%0AState: ${state};
+            let message = `Order Details:%0AName: ${name}%0APhone: ${phone}%0AEmail: ${email}%0APincode: ${pincode}%0ACity: ${city}%0AState: ${state}`;
             if (productImage) {
-                message += %0AProduct Image: ${productImage};
+                message += `%0AProduct Image: ${productImage}`;
             }
             
-            let url = https://api.whatsapp.com/send?phone=9172955962&text=${message};
+            let url = `https://api.whatsapp.com/send?phone=9172955962&text=${message}`;
             window.open(url, "_blank");
             closeForm();
         }
@@ -345,10 +218,6 @@
         function openSupportChat() {
             window.open("https://api.whatsapp.com/send?phone=9172955962", "_blank");
         }
-        document.getElementById("file-input").addEventListener("change", function() {
-        let fileName = this.files[0] ? this.files[0].name : "No file chosen";
-        document.getElementById("file-name").textContent = fileName;
-    });
     </script>
 </body>
 </html>
