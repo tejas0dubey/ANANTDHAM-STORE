@@ -271,6 +271,7 @@
     z-index: 1000;">
     ⚠️ Illegal items cannot be delivered.
 </div>
+
     
     <button id="supportBtn" onclick="openSupportChat()">📞</button>
     <footer> <p>&copy;2025 Anantdham Store. <span class="verified-badge">✔ Trusted & Secure</span> All rights reserved.</p></footer> 
@@ -311,12 +312,12 @@
             let city = document.getElementById("customer-city").value;
             let state = document.getElementById("customer-state").value;
             
-            let message = `Order Details:%0AName: ${name}%0APhone: ${phone}%0AEmail: ${email}%0APincode: ${pincode}%0ACity: ${city}%0AState: ${state}`;
+            let message = Order Details:%0AName: ${name}%0APhone: ${phone}%0AEmail: ${email}%0APincode: ${pincode}%0ACity: ${city}%0AState: ${state};
             if (productImage) {
-                message += `%0AProduct Image: ${productImage}`;
+                message += %0AProduct Image: ${productImage};
             }
             
-            let url = `https://api.whatsapp.com/send?phone=9172955962&text=${message}`;
+            let url = https://api.whatsapp.com/send?phone=9172955962&text=${message};
             window.open(url, "_blank");
             closeForm();
         }
